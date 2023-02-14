@@ -9,7 +9,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    let profileHV = ProfileHeaderView()
+    private let profileHV: ProfileHeaderView = {
+        let profileHV = ProfileHeaderView()
+        profileHV.backgroundColor = .systemGray
+        profileHV.translatesAutoresizingMaskIntoConstraints = false
+        
+        return profileHV
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +27,17 @@ class ProfileViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        profileHV.frame = self.view.frame
+        
+        NSLayoutConstraint.activate([
+            profileHV.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            profileHV.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            profileHV.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            profileHV.heightAnchor.constraint(equalToConstant: 220)
+        ])
+        
         
     }
-
+    
     
 }
 
