@@ -88,6 +88,19 @@ class ProfileHeaderView: UIView {
         
     }()
     
+    private lazy var newButton: UIButton = {
+        let newButton = UIButton()
+        newButton.backgroundColor = .systemBlue
+        newButton.setTitle("button one", for: .normal)
+        newButton.setTitleColor(.white, for: .normal)
+        newButton.titleLabel?.font = newButton.titleLabel?.font.withSize(14)
+        newButton.layer.cornerRadius = 4
+        newButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return newButton
+        
+    }()
+    
     @objc func buttonPressed(_ sender: UIButton) {
         print(statusText ?? "")
         
@@ -99,6 +112,7 @@ class ProfileHeaderView: UIView {
         addSubview(avatarImageView)
         addSubview(setStatusButton)
         addSubview(statusTextField)
+        addSubview(newButton)
         
         statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         
@@ -123,8 +137,6 @@ class ProfileHeaderView: UIView {
             fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
             
             
-            
-            
             statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
             statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -10),
             
@@ -137,9 +149,14 @@ class ProfileHeaderView: UIView {
             setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
             setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            setStatusButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            
+      
+            newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            newButton.heightAnchor.constraint(equalToConstant: 35)
+           
             
         ])
         

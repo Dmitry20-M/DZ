@@ -30,8 +30,9 @@ class ProfileViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             profileHV.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            profileHV.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            profileHV.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            profileHV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            profileHV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            profileHV.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             profileHV.heightAnchor.constraint(equalToConstant: 220)
         ])
         
