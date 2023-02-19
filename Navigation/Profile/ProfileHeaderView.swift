@@ -21,80 +21,105 @@ class ProfileHeaderView: UIView {
         
     }
     
-    private lazy var showStatusButton: UIButton = {
-        let showStatusButton = UIButton()
-        showStatusButton.backgroundColor = .systemBlue
-        showStatusButton.setTitle("Show status", for: .normal)
-        showStatusButton.setTitleColor(.white, for: .normal)
-        showStatusButton.titleLabel?.font = showStatusButton.titleLabel?.font.withSize(14)
-        showStatusButton.layer.cornerRadius = 4
-        showStatusButton.translatesAutoresizingMaskIntoConstraints = false
-        showStatusButton.addTarget(self, action: #selector(buttoonAction), for: .touchUpInside)
+    private let avatarImageView: UIImageView = {
+        let avatarImageView = UIImageView()
+        avatarImageView.image = UIImage(named: "logo")
+        avatarImageView.layer.cornerRadius = 70
+        avatarImageView.layer.borderColor = UIColor.white.cgColor
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.clipsToBounds = true
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        return showStatusButton
+        return avatarImageView
+    }()
+    
+    private lazy var fullNameLabel: UILabel = {
+        let fullNameLabel = UILabel()
+        fullNameLabel.text = "Rock Music"
+        fullNameLabel.tintColor = .black
+        fullNameLabel.font = UIFont.systemFont(ofSize: 18)
+        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        return fullNameLabel
+    }()
+    
+    private lazy var statusLabel: UILabel = {
+        let statusLabel = UILabel()
+        statusLabel.text = "Listing to music"
+        statusLabel.tintColor = .gray
+        statusLabel.font = UIFont.systemFont(ofSize: 15)
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
+        return statusLabel
+    }()
+    
+    private var statusText: String?
+    
+    
+    private let statusTextField: UITextField = {
+        let statusTextField = UITextField()
+        statusTextField.borderStyle = .roundedRect
+        statusTextField.font = UIFont.systemFont(ofSize: 15)
+        statusTextField.placeholder = "Listing to music"
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.clipsToBounds = true
+        statusTextField.layer.borderWidth = 1
+        statusTextField.backgroundColor = .white
+        statusTextField.layer.borderColor = UIColor.white.cgColor
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        return statusTextField
         
     }()
     
-    
-    @objc private func buttoonAction(_ sender: UIButton) {
-        print(waitingForSomethingLabel.text ?? "")
+    private lazy var setStatusButton: UIButton = {
+        let setStatusButton = UIButton()
+        setStatusButton.backgroundColor = .systemBlue
+        setStatusButton.setTitle("Set status", for: .normal)
+        setStatusButton.setTitleColor(.white, for: .normal)
+        setStatusButton.titleLabel?.font = setStatusButton.titleLabel?.font.withSize(14)
+        setStatusButton.layer.cornerRadius = 4
+        setStatusButton.translatesAutoresizingMaskIntoConstraints = false
+        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
+        return setStatusButton
+        
+    }()
+    
+    private lazy var newButton: UIButton = {
+        let newButton = UIButton()
+        newButton.backgroundColor = .systemBlue
+        newButton.setTitle("button one", for: .normal)
+        newButton.setTitleColor(.white, for: .normal)
+        newButton.titleLabel?.font = newButton.titleLabel?.font.withSize(14)
+        newButton.layer.cornerRadius = 4
+        newButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return newButton
+        
+    }()
+    
+    @objc func buttonPressed(_ sender: UIButton) {
+        print(statusText ?? "")
         
     }
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "logo")
-        imageView.layer.cornerRadius = 70
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 3
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var rockMusicNameLabel: UILabel = {
-        let rockMusicNameLabel = UILabel()
-        rockMusicNameLabel.text = "Rock Music"
-        rockMusicNameLabel.tintColor = .black
-        rockMusicNameLabel.font = UIFont.systemFont(ofSize: 18)
-        rockMusicNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        return rockMusicNameLabel
-    }()
-    
-    private lazy var waitingForSomethingLabel: UILabel = {
-        let waitingForSomethingLabel = UILabel()
-        waitingForSomethingLabel.text = "Waiting for something"
-        waitingForSomethingLabel.tintColor = .gray
-        waitingForSomethingLabel.font = UIFont.systemFont(ofSize: 14)
-        waitingForSomethingLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        return waitingForSomethingLabel
-    }()
-    
-    
-    private let listingToMusicField: UITextField = {
-        let listingToMusicField = UITextField()
-        listingToMusicField.borderStyle = .roundedRect
-        listingToMusicField.font = UIFont.systemFont(ofSize: 18)
-        listingToMusicField.placeholder = "Listing to music"
-        listingToMusicField.layer.cornerRadius = 12
-        listingToMusicField.clipsToBounds = true
-        listingToMusicField.layer.borderWidth = 1
-        listingToMusicField.layer.borderColor = UIColor.black.cgColor
-        listingToMusicField.translatesAutoresizingMaskIntoConstraints = false
-        return listingToMusicField
-        
-    }()
-    
     private func setupView() {
+        addSubview(fullNameLabel)
+        addSubview(statusLabel)
+        addSubview(avatarImageView)
+        addSubview(setStatusButton)
+        addSubview(statusTextField)
+        addSubview(newButton)
         
-        addSubview(rockMusicNameLabel)
-        addSubview(waitingForSomethingLabel)
-        addSubview(imageView)
-        addSubview(showStatusButton)
+        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        statusText = textField.text
         
     }
     
@@ -102,28 +127,41 @@ class ProfileHeaderView: UIView {
         
         NSLayoutConstraint.activate([
             
-            imageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
+            avatarImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 150),
             
             
-            rockMusicNameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
-            rockMusicNameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16),
+            fullNameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27),
+            fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
             
             
-            waitingForSomethingLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16),
-            waitingForSomethingLabel.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -34),
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -10),
             
             
-            showStatusButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
-            showStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            showStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            
+      
+            newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            newButton.heightAnchor.constraint(equalToConstant: 35)
+           
             
         ])
         
     }
+
     
 }
 
