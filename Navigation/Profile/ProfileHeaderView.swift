@@ -49,9 +49,6 @@ class ProfileHeaderView: UIView {
         statusLabel.tintColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 15)
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        
         return statusLabel
     }()
     
@@ -82,6 +79,7 @@ class ProfileHeaderView: UIView {
         setStatusButton.titleLabel?.font = setStatusButton.titleLabel?.font.withSize(14)
         setStatusButton.layer.cornerRadius = 4
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
+        
         setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         return setStatusButton

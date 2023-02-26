@@ -94,42 +94,9 @@ class LogInView: UIView {
     }()
     
     @objc func logInButtonPressed() {
-        //        let profileVC = ProfileViewController()
-        //        self.navigationController?.pushViewController(profileVC, animated: true)
-        
-        
-        
-        // скрываем клавиатуру чтоб она не закрывала поля
-        //        emailOfPhoneField.resignFirstResponder()
-        //        passwordField.resignFirstResponder()
-        //        firstNameField.resignFirstResponder()
-        //        lastNameField.resignFirstResponder()
-        
-    
-//        emailOfPhoneField.resignFirstResponder()
-//        passwordField.resignFirstResponder()
-        //        logInButton.resignFirstResponder()
-        
-        //        guard let email = emailOfPhoneField.text,
-        //              let password = passwordField.text,
-        //              !email.isEmpty,
-        //              !password.isEmpty, password.count >= 6
-        //        else {
-        //            alertUserLoginError()
-        //            return
-        //        }
+//        let profileVC = ProfileViewController()
+//        navigationController?.pushViewController(profileVC, animated: true)
     }
-    
-    // проверка logInButtonPressed
-    //    func alertUserLoginError() {
-    //        let alert = UIAlertController(title: "Напоминание",
-    //                                      message: "Введите логин и пароль", //  введите всю информацию для входа
-    //                                      preferredStyle: .alert)
-    //        alert.addAction(UIAlertAction(title: "Закрыть",
-    //                                      style: .cancel,
-    //                                      handler: nil))
-    //        present(alert, animated: true)
-    //    }
     
     private func setupView() {
         addSubview(scrollView)
