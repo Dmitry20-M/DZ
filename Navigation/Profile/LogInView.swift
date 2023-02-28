@@ -112,14 +112,14 @@ final class LogInView: UIView {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor), // Add this line
+
             
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 120),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalToConstant: 100),
             
-            emailOfPhoneField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 120), // Change this line
+            emailOfPhoneField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 120),
             emailOfPhoneField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             emailOfPhoneField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             emailOfPhoneField.heightAnchor.constraint(equalToConstant: 50),
@@ -133,8 +133,8 @@ final class LogInView: UIView {
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16) // Add this line
-         
+            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16), 
+    
         ])
    }
     
