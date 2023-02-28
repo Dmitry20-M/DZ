@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     private let profileHV: ProfileHeaderView = {
         let profileHV = ProfileHeaderView()
         profileHV.backgroundColor = .systemGray
         profileHV.translatesAutoresizingMaskIntoConstraints = false
-        
         return profileHV
     }()
     
@@ -23,8 +22,10 @@ class ProfileViewController: UIViewController {
         title = "Профиль"
         view.backgroundColor = .systemGray
         self.view.addSubview(profileHV)
+        self.navigationController?.navigationBar.isHidden = true
+        
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         

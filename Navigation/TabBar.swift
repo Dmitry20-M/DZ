@@ -17,9 +17,8 @@ class TabBar: UITabBarController {
     
     func setupControllers() {
         let feedVC = createController(viewController: FeedViewController(), itemName: "Лента", ItemImage: "doc.richtext")
-        let LogInVC = createController(viewController: LogInViewController(), itemName: "Профиль", ItemImage: "person.circle")
-        viewControllers = [feedVC, LogInVC]
-
+        let logInVC = createController(viewController: LogInViewController(), itemName: "Профиль", ItemImage: "person.circle")
+        viewControllers = [feedVC, logInVC]
     }
     
     func createController(viewController: UIViewController, itemName: String, ItemImage: String) -> UINavigationController {

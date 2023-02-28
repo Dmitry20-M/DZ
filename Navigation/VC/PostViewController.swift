@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
+final class PostViewController: UIViewController {
     var titlePost: String = "nil"
        
        override func viewDidLoad() {
