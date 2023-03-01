@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileHeaderView: UIView {
+class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

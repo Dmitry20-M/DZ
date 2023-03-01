@@ -19,7 +19,6 @@
 		041B022E2992F01B00A833BC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B022D2992F01B00A833BC /* TabBar.swift */; };
 		044AF9BA2986C1D500FCC774 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AF9B92986C1D500FCC774 /* ProfileHeaderView.swift */; };
 		048FCF0129A2266E00271ECB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FCF0029A2266E00271ECB /* LogInViewController.swift */; };
-		048FCF0329A2877100271ECB /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FCF0229A2877100271ECB /* LogInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		041B022D2992F01B00A833BC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		044AF9B92986C1D500FCC774 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		048FCF0029A2266E00271ECB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		048FCF0229A2877100271ECB /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +97,6 @@
 				0400D70C29858DB2007A7393 /* ProfileViewController.swift */,
 				044AF9B92986C1D500FCC774 /* ProfileHeaderView.swift */,
 				048FCF0029A2266E00271ECB /* LogInViewController.swift */,
-				048FCF0229A2877100271ECB /* LogInView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -174,7 +171,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048FCF0329A2877100271ECB /* LogInView.swift in Sources */,
 				0400D6F729858B3D007A7393 /* AppDelegate.swift in Sources */,
 				0400D70B29858DA7007A7393 /* FeedViewController.swift in Sources */,
 				041B022E2992F01B00A833BC /* TabBar.swift in Sources */,

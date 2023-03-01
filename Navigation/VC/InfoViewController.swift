@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class InfoViewController: UIViewController {
+class InfoViewController: UIViewController {
     
    
     private let allertButton: UIButton = {

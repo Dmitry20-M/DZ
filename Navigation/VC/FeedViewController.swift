@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FeedViewController: UIViewController {
+class FeedViewController: UIViewController {
     
     var post = Post(title: "Мой пост")
        
