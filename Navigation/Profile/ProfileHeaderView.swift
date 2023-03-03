@@ -11,7 +11,6 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupView()
         setupConstraints()
     }
@@ -39,7 +38,6 @@ class ProfileHeaderView: UIView {
         fullNameLabel.tintColor = .black
         fullNameLabel.font = UIFont.systemFont(ofSize: 18)
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         return fullNameLabel
     }()
     
@@ -49,16 +47,13 @@ class ProfileHeaderView: UIView {
         statusLabel.tintColor = .gray
         statusLabel.font = UIFont.systemFont(ofSize: 15)
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        
         return statusLabel
     }()
     
     private var statusText: String?
     
     
-    private let statusTextField: UITextField = {
+    private lazy var statusTextField: UITextField = {
         let statusTextField = UITextField()
         statusTextField.borderStyle = .roundedRect
         statusTextField.font = UIFont.systemFont(ofSize: 15)
@@ -68,13 +63,13 @@ class ProfileHeaderView: UIView {
         statusTextField.layer.borderWidth = 1
         statusTextField.backgroundColor = .white
         statusTextField.layer.borderColor = UIColor.white.cgColor
+        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        
         return statusTextField
         
     }()
     
-    private lazy var setStatusButton: UIButton = {
+        lazy var setStatusButton: UIButton = {
         let setStatusButton = UIButton()
         setStatusButton.backgroundColor = .systemBlue
         setStatusButton.setTitle("Set status", for: .normal)
@@ -83,7 +78,6 @@ class ProfileHeaderView: UIView {
         setStatusButton.layer.cornerRadius = 4
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
         return setStatusButton
         
     }()
@@ -96,14 +90,13 @@ class ProfileHeaderView: UIView {
         newButton.titleLabel?.font = newButton.titleLabel?.font.withSize(14)
         newButton.layer.cornerRadius = 4
         newButton.translatesAutoresizingMaskIntoConstraints = false
-        
         return newButton
         
     }()
     
     @objc func buttonPressed(_ sender: UIButton) {
         print(statusText ?? "")
-        
+
     }
     
     private func setupView() {
@@ -113,9 +106,6 @@ class ProfileHeaderView: UIView {
         addSubview(setStatusButton)
         addSubview(statusTextField)
         addSubview(newButton)
-        
-        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-        
     }
     
     @objc func statusTextChanged(_ textField: UITextField) {
