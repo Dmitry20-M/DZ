@@ -25,6 +25,7 @@ class FeedViewController: UIViewController {
         let button = UIButton()
         button.setTitle("button", for: .normal)
         button.backgroundColor = .blue
+        button.layer.cornerRadius = 10
         
         return button
     }()
@@ -39,6 +40,7 @@ class FeedViewController: UIViewController {
         let buttonTwo = UIButton()
         buttonTwo.setTitle("buttonTwo", for: .normal)
         buttonTwo.backgroundColor = .red
+        buttonTwo.layer.cornerRadius = 10
         
         return buttonTwo
     }()
@@ -68,6 +70,8 @@ class FeedViewController: UIViewController {
         NSLayoutConstraint.activate([
             
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
         ])
