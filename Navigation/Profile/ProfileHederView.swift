@@ -75,7 +75,7 @@ class ProfileHederView: UIView {
         setStatusButton.setTitle("Set status", for: .normal)
         setStatusButton.setTitleColor(.white, for: .normal)
         setStatusButton.titleLabel?.font = setStatusButton.titleLabel?.font.withSize(14)
-        setStatusButton.layer.cornerRadius = 4
+        setStatusButton.layer.cornerRadius = 10
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return setStatusButton
@@ -118,8 +118,9 @@ class ProfileHederView: UIView {
             statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
             statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -10),
             
-            
+          
             statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
             
