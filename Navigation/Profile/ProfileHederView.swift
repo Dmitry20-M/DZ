@@ -1,14 +1,14 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileTableHederView.swift
 //  Navigation
 //
-//  Created by Mac ыыы on 29.01.2023.
+//  Created by Mac ыыы on 03.03.2023.
 //
 
 import UIKit
 
-class ProfileHeaderView: UIView {
-    
+class ProfileHederView: UIView {
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -26,7 +26,7 @@ class ProfileHeaderView: UIView {
         avatarImageView.layer.cornerRadius = 70
         avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.layer.borderWidth = 3
-        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.masksToBounds = true
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         return avatarImageView
@@ -75,22 +75,10 @@ class ProfileHeaderView: UIView {
         setStatusButton.setTitle("Set status", for: .normal)
         setStatusButton.setTitleColor(.white, for: .normal)
         setStatusButton.titleLabel?.font = setStatusButton.titleLabel?.font.withSize(14)
-        setStatusButton.layer.cornerRadius = 4
+        setStatusButton.layer.cornerRadius = 10
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return setStatusButton
-        
-    }()
-    
-    private lazy var newButton: UIButton = {
-        let newButton = UIButton()
-        newButton.backgroundColor = .systemBlue
-        newButton.setTitle("button one", for: .normal)
-        newButton.setTitleColor(.white, for: .normal)
-        newButton.titleLabel?.font = newButton.titleLabel?.font.withSize(14)
-        newButton.layer.cornerRadius = 4
-        newButton.translatesAutoresizingMaskIntoConstraints = false
-        return newButton
         
     }()
     
@@ -105,7 +93,7 @@ class ProfileHeaderView: UIView {
         addSubview(avatarImageView)
         addSubview(setStatusButton)
         addSubview(statusTextField)
-        addSubview(newButton)
+
     }
     
     @objc func statusTextChanged(_ textField: UITextField) {
@@ -118,7 +106,7 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate([
             
             avatarImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             avatarImageView.widthAnchor.constraint(equalToConstant: 150),
             avatarImageView.heightAnchor.constraint(equalToConstant: 150),
             
@@ -130,8 +118,9 @@ class ProfileHeaderView: UIView {
             statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
             statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -10),
             
-            
+          
             statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -34),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
             
@@ -140,18 +129,11 @@ class ProfileHeaderView: UIView {
             setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            
-      
-            newButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            newButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            newButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            newButton.heightAnchor.constraint(equalToConstant: 35)
-           
+            setStatusButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+        
             
         ])
         
     }
 
-    
 }
-
