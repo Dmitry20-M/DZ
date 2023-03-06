@@ -22,13 +22,11 @@ class ProfileHederView: UIView {
     
     private let avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
-//        let avatarImageView = UIImageView(frame: .zero)
         avatarImageView.image = UIImage(named: "logo")
         avatarImageView.layer.cornerRadius = 70
         avatarImageView.layer.borderColor = UIColor.white.cgColor
         avatarImageView.layer.borderWidth = 3
         avatarImageView.layer.masksToBounds = true
-//        avatarImageView.contentMode = .scaleAspectFit
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         return avatarImageView
@@ -108,8 +106,9 @@ class ProfileHederView: UIView {
         
         NSLayoutConstraint.activate([
             
+            
             avatarImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
-            avatarImageView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             avatarImageView.widthAnchor.constraint(equalToConstant: 150),
             avatarImageView.heightAnchor.constraint(equalToConstant: 150),
             
@@ -131,6 +130,7 @@ class ProfileHederView: UIView {
             setStatusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
         
             
         ])

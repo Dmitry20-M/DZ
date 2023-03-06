@@ -44,7 +44,7 @@ class PostTableViewCell: UITableViewCell {
         viewsText.translatesAutoresizingMaskIntoConstraints = false
         viewsText.backgroundColor = .white
         viewsText.font = .systemFont(ofSize: 16)
-        viewsText.textColor = .systemGray
+        viewsText.textColor = .black
         return viewsText
     }()
     

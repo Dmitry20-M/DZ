@@ -26,14 +26,14 @@ class ProfileViewController: UIViewController {
            navigationController?.navigationBar.isHidden = true
            constraints()
        }
-
+       
        private func constraints() {
            view.addSubview(tableView)
            
            NSLayoutConstraint.activate([
                tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-               tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-               tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+               tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+               tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
            ])
        }
@@ -42,6 +42,7 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return postModal.count
     }
     
@@ -51,11 +52,11 @@ extension ProfileViewController: UITableViewDataSource {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = ProfileHederView()
-//        header.backgroundColor = .systemGray4
-//        return header
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = ProfileHederView()
+        header.backgroundColor = .systemGray4
+        return header
+    }
 }
 
 extension ProfileViewController: UITableViewDelegate {
@@ -65,9 +66,8 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
-    }
-    
 
+    }
 }
 
 
