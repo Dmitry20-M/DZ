@@ -66,7 +66,7 @@ class LogInViewController: UIViewController {
         return passwordField
     }()
     
-    let logInButton: UIButton = {
+   private lazy var logInButton: UIButton = {
         let logInButton = UIButton()
         logInButton.setTitle("Log in", for: .normal)
         logInButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
@@ -83,9 +83,15 @@ class LogInViewController: UIViewController {
         logInButton.setBackgroundImage(UIImage(named: "blue_pixel"), for: .disabled)
         logInButton.alpha = 0.8
         logInButton.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.addTarget(self, action: #selector(logInButtonPressed), for: .touchUpInside)
         return logInButton
     }()
     
+    @objc func logInButtonPressed() {
+        let profileVC = ProfileViewController()
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logoVK")
@@ -98,8 +104,6 @@ class LogInViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(logInButton)
-        //  contentView.addSubview(emailOfPhoneField)
-        //  contentView.addSubview(passwordField)
         contentView.addSubview(imageView)
         view.addSubview(stackView)
         stackView.addArrangedSubview(emailOfPhoneField)
