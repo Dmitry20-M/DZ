@@ -82,7 +82,6 @@ class ProfileHederView: UIView {
         
     }()
     
-    
     @objc func buttonPressed(_ sender: UIButton) {
         print(statusText ?? "")
 
@@ -105,7 +104,6 @@ class ProfileHederView: UIView {
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            
             
             avatarImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
